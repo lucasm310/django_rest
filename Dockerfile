@@ -6,6 +6,8 @@ RUN mkdir /code
 WORKDIR /code/pontos_turisticos
 COPY ./code /code
 
+RUN apk add jpeg-dev zlib-dev musl-dev
+
 COPY ./requeriments.txt /requeriments.txt
 RUN pip install -r /requeriments.txt
 
