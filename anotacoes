@@ -1,0 +1,25 @@
+pontos_turisticos
+	-> core
+		->
+	-> atracoes
+	-> comentarios
+		-> model
+			usuario
+			comentario
+			data date
+			aprovado
+	-> avaliacao
+		-> model
+			usuario
+			comentario
+			nota decimal
+			data date
+	-> enderecos
+		-> model
+			linha1
+			linha2 op
+			cidade
+			estado
+			pais
+			latitude op
+			longtitude op
