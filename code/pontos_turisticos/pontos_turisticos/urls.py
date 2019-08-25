@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+# from django.conf import settings
+# from django.conf.urls.static import static
 from core.api.viewsets import PontosTuristicosViewSet
 from atracoes.api.viewsets import AtracoesViewSet
 from enderecos.api.viewsets import EnderecosViewSet
