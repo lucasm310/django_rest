@@ -1,4 +1,4 @@
-from user.models import CustomUser
+from users.models import CustomUser
 from django.db import models
 
 class Comentarios(models.Model):

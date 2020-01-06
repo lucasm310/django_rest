@@ -3,7 +3,7 @@ from atracoes.models import Atracoes
 from comentarios.models import Comentarios
 from avaliacoes.models import Avaliacoes
 from enderecos.models import Enderecos
-from user.models import CustomUser
+from users.models import CustomUser
 
 class PontoTuristico(models.Model):
 	"""Model definition for PontoTurisico."""

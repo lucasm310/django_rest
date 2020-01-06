@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'comentarios',
     'avaliacoes',
     'enderecos',
-    'user'
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -129,4 +129,4 @@ STATIC_URL = '/static/'
 # MEDIA_ROOT = 'imagens'
 # MEDIA_URL = '/media/'
 
-AUTH_USER_MODEL = 'user.CustomUser'
+AUTH_USER_MODEL = 'users.CustomUser'
