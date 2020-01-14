@@ -9,10 +9,14 @@ class MyUserManager(BaseUserManager):
 	A custom user manager to deal with emails as unique identifiers for auth
 	instead of usernames. The default that's used is "UserManager"
 	"""
-	def _create_user(self, email, password, **extra_fields):
+	def create_user(self, email, password, **extra_fields):
 		"""
 		Creates and saves a User with the given email and password.
 		"""
+		
+		extra_fields.setdefault('is_staff', True)
+		extra_fields.setdefault('is_superuser', True)
+		extra_fields.setdefault('is_active', True)
 		if not email:
 			raise ValueError('The Email must be set')
 		email = self.normalize_email(email)
@@ -35,8 +39,9 @@ class MyUserManager(BaseUserManager):
 class CustomUser(AbstractUser):
 	email = models.EmailField(unique=True, null=True)
 	name = models.CharField(blank=True, max_length=255)
+
 	
-	USERNAME_FIELD = 'email'
+	# USERNAME_FIELD = 'email'
 	REQUIRED_FIELDS = []
 	objects = MyUserManager()
 	

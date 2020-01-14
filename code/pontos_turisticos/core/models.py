@@ -1,8 +1,4 @@
 from django.db import models
-from atracoes.models import Atracoes
-from comentarios.models import Comentarios
-from avaliacoes.models import Avaliacoes
-from enderecos.models import Enderecos
 from users.models import CustomUser
 
 class PontoTuristico(models.Model):
@@ -10,19 +6,16 @@ class PontoTuristico(models.Model):
 	nome = models.CharField(max_length=50)
 	descricao = models.TextField()
 	aprovado = models.BooleanField(default=False)
-	atracoes = models.ManyToManyField(Atracoes)
-	comentarios = models.ManyToManyField(Comentarios)
-	avaliacoes = models.ManyToManyField(Avaliacoes)
-	enderecos = models.ForeignKey(
-		Enderecos, 
-		on_delete=models.CASCADE, 
-		null=True, 
-		blank=True
-	)
+	linha1 = models.CharField(max_length=150, null=True, blank=True)
+	linha2 = models.CharField(max_length=150, null=True, blank=True)
+	cidade = models.CharField(max_length=50)
+	estado = models.CharField(max_length=50)
+	pais = models.CharField(max_length=50)
+	latitude = models.IntegerField(null=True, blank=True)
+	longitude = models.IntegerField(null=True, blank=True)
 	cadastrado_por = models.ForeignKey(
 		CustomUser,
-		on_delete=models.CASCADE,
-		editable=False
+		on_delete=models.CASCADE
 	)
 	data_cadastro = models.DateTimeField(auto_now_add=True)
 	# foto = models.ImageField(upload_to='pontos_turisticos', null=True, blank=True)

@@ -12,4 +12,7 @@ class PontosTuristicosViewSet(ModelViewSet):
 	queryset = PontoTuristico.objects.all()
 	serializer_class = PontoTuristicoSerializer
 	filter_backends = [filters.SearchFilter]
-	search_fields = ['nome']
+	search_fields = ['nome','cidade','estado']
+
+	def perform_create(self, serializer):
+		serializer.save(cadastrado_por=self.request.user)
