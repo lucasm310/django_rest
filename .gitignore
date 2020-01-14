@@ -5,3 +5,4 @@ migrations/
 *.py[cod]
 $py.class
 node_modules/
+anotacoes
