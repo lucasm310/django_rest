@@ -5,12 +5,6 @@ from users.models import CustomUser
 from .serializers import UserListSerializer
 from .serializers import UserCreateSerializer
 
-
-# class PermissaoCustom(BasePermission):
-# 	def has_permission(self, request, view):
-# 		if request.method == "POST" and not request.user.is_authenticated():
-# 			return user
-
 class UserViewSet(ModelViewSet):
 	authentication_classes = [TokenAuthentication]
 
