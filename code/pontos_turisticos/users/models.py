@@ -13,10 +13,6 @@ class MyUserManager(BaseUserManager):
 		"""
 		Creates and saves a User with the given email and password.
 		"""
-		
-		extra_fields.setdefault('is_staff', True)
-		extra_fields.setdefault('is_superuser', True)
-		extra_fields.setdefault('is_active', True)
 		if not email:
 			raise ValueError('The Email must be set')
 		email = self.normalize_email(email)

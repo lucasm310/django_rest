@@ -1,13 +1,28 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAdminUser, AllowAny
 from users.models import CustomUser
 from .serializers import UserListSerializer
 from .serializers import UserCreateSerializer
 
 
+# class PermissaoCustom(BasePermission):
+# 	def has_permission(self, request, view):
+# 		if request.method == "POST" and not request.user.is_authenticated():
+# 			return user
+
 class UserViewSet(ModelViewSet):
+	authentication_classes = [TokenAuthentication]
+
 	queryset = CustomUser.objects.all()
+
+	def get_permissions(self):
+		if self.action == 'create':
+			permission_classes = [AllowAny]
+		else:
+			permission_classes = [IsAdminUser]
+		
+		return [permission() for permission in permission_classes]
 
 	def get_serializer_class(self):
 		if self.action == 'list':
